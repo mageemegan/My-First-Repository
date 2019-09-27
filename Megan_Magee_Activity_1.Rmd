@@ -1,0 +1,60 @@
+---
+title: "Megan_Magee_Activity_1"
+author: "Megan Magee"
+date: "18/09/2019"
+output: html_document
+---
+# Research Interest 
+As a new Master's student at McMaster University, my research of interest is still in development. My research topic of interesst involves the use of _Capillary Electrophoresis_ for the analysis of key __metabolic biomarkers__ that can be identified in human biological specimen samples. The reason for characterising metabolic biomarkers is in part due to the vast amount of information pertaining to human health that can be extracted from each persons metabolic profile. Examination of ones metabolic profile in contrast to a healthy control can help screen for and assess risk levels for various diseases. 
+
+# Favorites 
+
+## Favorite Music
+
+1. Ain't Nobody - Felix Jaehn
+2. Cherry Wine - Hozier
+3. Imagination - Gorgon City
+4. MakeDamnSure - Taking Back Sunday
+5. Go Flex - Post Malone
+
+## Favorite Equation 
+
+$$pH=pK_a+log\frac{[base]}{[acid]}$$
+
+## Favorite Artists
+
+Name | Achievements
+-|-
+Picasso|Famous Painter
+Paul Signac|French Neo-impressionist painter who helped develop pointillist style
+Billy Ellish|popular singer
+J.K. Rowling|Novelist and creator of the Harry Potter book series
+Yayoi Kusama|Modern day Pop Art and Minimalism artist
+
+# A Chunck of Code
+
+```{r}
+#Downloading a dataset on the prediction of Iris flower species based on flower measurements
+
+data("iris")
+
+#This will provide me with a data set in my 'environment'
+
+#Perform Basic addition
+
+a=3+4
+
+b=146
+
+#subtract a from b
+
+final_answer= b - a 
+
+#In the values section of the 'Environment' tab the values of a, b and final answer are displayed
+```
+
+
+
+
+
+

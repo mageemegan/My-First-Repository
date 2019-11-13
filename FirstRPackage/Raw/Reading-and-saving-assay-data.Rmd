@@ -1,0 +1,42 @@
+---
+title: "Reading and saving data in R format"
+output: html_notebook
+---
+
+I (Megan) have an excel file with assay data that I want to package, the data needs to be converted to .RData format to do so.
+
+Load package for reading excel:
+```{r}
+library(readxl)
+```
+
+Read example excel file:
+```{r}
+StandardizationAssayData <- read_excel("StandardizationAssayData_example.xlsx")
+```
+
+Save RData:
+```{r}
+save(StandardizationAssayData, file = "StandardizationAssayData.RData")
+```
+
+Some examples of data visualization and manipulation
+
+ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`)) + geom_point()
+> ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`, color = `Samplle Vial`)) + geom_point()
+> ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`, color = factor(`Samplle Vial`))) + geom_point()
+> ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`)) + geom_point() + facet_wrap(~ `Samplle Vial`)
+> ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`. color = "Identity")) + geom_point() + facet_wrap(~ `Samplle Vial`)
+Error: unexpected symbol in "ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`."
+> ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`, color = "Identity")) + geom_point() + facet_wrap(~ `Samplle Vial`)
+> ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`, color = Identity)) + geom_point() + facet_wrap(~ `Samplle Vial`)
+> load("C:/Users/megan/Documents/Reproducable research/R/R package/FirstRPackage/Raw/StandardizationAssayData.RData")
+> View(StandardizationAssayData)
+
+filter(StandardizationAssayData, `Samplle Vial` == 2)
+
+select(StandardizationAssayData, `Samplle Vial`)
+
+Note: Check `dplyr` and `ggplot2`
+
+Note: Do a search for: r package build examples function not found

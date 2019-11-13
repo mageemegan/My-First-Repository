@@ -1,0 +1,16 @@
+Package: FirstRPackage
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Megan Magee
+Maintainer: Megan Magee <mageem@mcmaster.ca>
+Description: This package is a tester package for building an understanding about creating packages
+    It will include an example data set.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

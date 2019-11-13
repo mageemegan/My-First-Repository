@@ -1,0 +1,78 @@
+---
+title: "FirstRPackage-vignette"
+output: rmarkdown::html_vignette
+abstract: It is important to document all steps of your analysis. This vignette will outline the steps involved in documenting data analysis with regards to the `FirstRPackage` package, and more specifically, the dataset included in this package `StandardizationAssayData`
+keywords: R packages; reproducable research; data analysis
+vignette: >
+  %\VignetteIndexEntry{FirstRPackage-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+This vignette will expand upon the intended uses and abilities of the R package `FirstRPackage` including the functions included for the aid in statistical analysis of the supplied dataset. The dataset `StandardizationAssayData` was collected for the purpose of creating calibration curves for the key metabolites found in urinary samples.    By collecting data on standardized samples, calibration curves can be created and used as a refernce for determining the identity and prominace of key urinary metabolites in samples. Knowing the relative levels of these metabolites can give insight into the health of the sample recipient.
+
+## Preliminary
+
+The first thing needed is to load the packages that were used in this vignette:
+```{r setup}
+library(FirstRPackage)
+library(`tidyverse`)
+
+```
+
+## Loading the Data
+
+To load the dataset used in this package, use the function `data()`:
+```{r load-data}
+data("StandardizationAssayData")
+```
+
+If you would like to further inspect the dataframe, use the function `summary()`
+```{r summary-data}
+summary(StandardizationAssayData)
+```
+
+The dataset cosists of 6 variables and 12 rows of data. The definitions of each variable in the dataset can be found in the help file:
+(This help file also contains information on the source of the dataset)
+```{r call-help}
+?StandardizationAssayData
+```
+
+## Correlation of Peak Area and Peak Migration Time
+
+The package analyses the possibility that realtive peak area (Relative PA) is related to peak migration time (Peak MT). This relationship is visualized using a scatterplot correlating the two variables
+```{r Peak-MT-by-Relative-PA}
+ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`)) + geom_point()
+```
+
+The scatterplot can be further altered to display the sample readings from vial 1 and the sample readings from vial 2 as different colours or shapes to differentiate the scatter points from eachother and to assess if there is any correlation between the samples from vials 1 and 2.
+
+```{r Peak-MT-by-Relative-PA Differentiation}
+ggplot(data = StandardizationAssayData, aes(x = `Peak MT`, y = `Relative PA`, color = factor(`Samplle Vial`))) + geom_point()
+```
+
+## Calculating the mean
+
+It is possible to calculate the mean of any of the variables in the dataset. For further information on this function, the help file mean1.Rd can be consulted
+
+```{r mean-function}
+?mean1
+```
+
+In order to perform a mean calculation on the variables (for example Peak MT) in the dataset:
+
+```{r mean-calculation}
+mean(StandardizationAssayData$`Peak MT`)
+```
+
+
+This analysis may be extended in the future as the package capabilities grows
